@@ -3,15 +3,17 @@ body{
     justify-content: center;
     align-items: center;
     background-position:center;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('7be683b19cc952d5eb50a3ef4bd71a44.jpg')        
-        /*url('https://source.unsplash.com/random/1920x1080?topics=weather')*/
-        ;
     height: 100vh;
+    width: 100vw;
     margin: 0;
+    padding: 0;
     background-color: rgb(113, 113, 113);
 
 }
+
+
 
 .card{
     background-color: #000000d0;

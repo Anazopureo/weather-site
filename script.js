@@ -1,9 +1,9 @@
-const accessKey = 'YOUR_ACCESS_KEY'; // Replace with your actual Access Key
-const container = document.getElementById('background-container');
+const accessKey = 'GJwISpesjDJpfyKlih0rxhv1cRESg79EwdSSZsKV2vk'; // Replace with your actual Access Key
+const container = document.querySelector("body");
 
 function getRandomImage() {
     // Unsplash API endpoint for a random photo
-    const apiUrl = `api.unsplash.com{accessKey}&orientation=landscape`;
+    const apiUrl = `api.unsplash.com{GJwISpesjDJpfyKlih0rxhv1cRESg79EwdSSZsKV2vk}&orientation=landscape`;
 
     fetch(apiUrl)
         .then(response => {
