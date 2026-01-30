@@ -2,18 +2,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Google Sans", sans-serif;
     background-position:center;
     background-repeat: no-repeat;
-    background-image: url('7be683b19cc952d5eb50a3ef4bd71a44.jpg')        
-        /*url('https://source.unsplash.com/random/1920x1080?topics=weather')*/
-        ;
+    /* background-image:    ;       */
+        
     height: 100vh;
     margin: 0;
     background-color: rgb(113, 113, 113);
 
 }
 
-.card{
+.card {
     background-color: #000000d0;
     color: white;
     padding: 2em;
@@ -23,6 +23,24 @@ body{
     margin: 1em;
 } 
 
-.searchbar{
+.search {
+    display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.search-btn{
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 2.5em;
+    width: 2.5em;    
+}
+
+.search-bar {
+    outline: none;
+    border: none;
+    padding: 0.8em;
+    border-radius: 18px;
+    background: 7c7c7c2b;
 }
