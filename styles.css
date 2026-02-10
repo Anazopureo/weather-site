@@ -5,7 +5,8 @@ body{
     font-family: "Google Sans", sans-serif;
     background-position:center;
     background-repeat: no-repeat;
-    background-image: url('https://unsplash.com/s/photos/nature-image'); 
+    background-image: url(istockphoto-1257951336-612x612.jpg); 
+    background-size: 90em;
     height: 100vh;
     margin: 0;
     background-color: rgb(113, 113, 113);
