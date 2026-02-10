@@ -72,13 +72,14 @@ h1.temperature {
     margin-left: 0.5em;
 }
 
-.weather.loading {
+/* meant to show a brief loading immediately after deployment */
+/* .weather.loading {
     visibility: hidden;
     max-height: 20px;
 }
 
-.weather.loading:before {
+.weather.loading::before {
     visibility: visible;
     content: "Loading...";
     color: white;
-}
+} */
