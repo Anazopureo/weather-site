@@ -1,34 +1,47 @@
-const accessKey = 'GJwISpesjDJpfyKlih0rxhv1cRESg79EwdSSZsKV2vk'; // Replace with your actual Access Key
-const container = document.getElementById('background-container');
 
-function getRandomImage() {
-    // Unsplash API endpoint for a random photo
-    const apiUrl = `api.unsplash.com${accessKey}&orientation=landscape`;
+let weather = {
+    apiKey: "57428a10c597b40112fb4bf0d660e1b5",
+    fetchWeather: function (city) {
+        fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q=" 
+            + city
+            + "&units=metric&appid=" 
+            + this.apiKey
+        )
+            .then((response) => response.json())
+            .then((data) => this.displayWeather(data))
+    },
+    displayWeather: function(data) {
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity }  = data.main;
+        const { speed } = data.wind;
+        // console.log(name, icon, description, temp, humidity,);
+        // uncomment if you need to display the information the console
+        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".icon").src =
+         "https://openweathermap.org/img/wn/" + icon +".png";
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temperature").innerText = temp + "°C";
+        document.querySelector("humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/hr";
+        document.querySelector(".weather").classList.remove("loading");
+    },
+    search: function () {
+        this.fetchWeather(document.querySelector(".searchbar").value);
+    }
+};
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Get the URL of the image (e.g., 'regular' or 'full' size)
-            const imageUrl = data.urls.regular; 
-            
-            // Apply the image URL to the CSS background-image property
-            container.style.backgroundImage = `url('${imageUrl}')`;
-            
-            // Optional: Log photographer for attribution (as per Unsplash guidelines)
-            console.log(`Photo by ${data.user.name} on Unsplash`);
-        })
-        .catch(error => {
-            console.error('Error fetching random image:', error);
-            // Optional: Set a fallback background color or image in case of failure
-            container.style.backgroundColor = '#333';
-        });
-}
+document.querySelector(".search-btn")
+.addEventListener("click", function () {
+    weather.search();
+});
+// reference back to in case button does not work
 
-// Call the function to load a random image when the page loads
-getRandomImage();
+document.querySelector(".searchbar").addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+})
 
+weather.fetchWeather("lagos"); 
